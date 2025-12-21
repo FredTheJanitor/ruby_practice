@@ -1,0 +1,3 @@
+loop do
+  puts "WELCOME TO THE JUNGLEEEE WE GONE CRASH YO SHIT"
+end
