@@ -1,6 +1,8 @@
 i = 0
 loop do
-  i = i + 1
+  i = i + 2
   puts i
-  break
+  if i >= 10
+    break
+  end
 end
