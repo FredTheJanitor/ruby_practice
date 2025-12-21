@@ -1,3 +1,4 @@
+puts "Enter a number less than |10,000|"
 x = gets.chomp.to_i.abs
 while x >= 0
   puts x
