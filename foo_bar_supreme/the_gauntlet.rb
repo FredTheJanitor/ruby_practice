@@ -66,5 +66,7 @@
 loop do
   unless gets.chomp == "yes"
     puts "yu like the Za ma boii?"
+    next
   end
+  break
 end
