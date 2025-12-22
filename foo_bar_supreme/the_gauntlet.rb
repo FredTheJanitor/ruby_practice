@@ -58,3 +58,7 @@
 # end
 # 
 #5 ------------------------------------
+#
+until gets.chomp == "yes" do
+  puts "Do you like Pizza?"
+end
