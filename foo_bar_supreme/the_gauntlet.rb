@@ -89,6 +89,15 @@
 #   puts "Hello, world!"
 # end
 
-for i in 1..5
-  puts "Hello, world!"
+# for i in 1..5
+#   puts "Hello, world!"
+# end
+# 
+#8 ------------------------------------
+# 5.times do |number|
+#   puts "Alternative fact number #{number}"
+# end
+
+for number in 0...5
+  puts "Alternative fact number #{number}"
 end
