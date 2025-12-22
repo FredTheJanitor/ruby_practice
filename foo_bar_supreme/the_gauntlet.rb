@@ -105,4 +105,11 @@
 #9 ------------------------------------
 #
 # 5.upto(10) { |num| print "#{num} " }     #=> 5 6 7 8 9 10
-6.times { |number| print "#{number + 5} " }
+# 6.times { |number| print "#{number + 5} " }
+# 
+#10 -----------------------------------
+#
+# 10.downto(5) { |num| print "#{num} " }   #=> 10 9 8 7 6 5
+my_array = (5..10).to_a
+my_array_reverse = my_array.reverse
+my_array_reverse.each {|number| print "#{number} "}
