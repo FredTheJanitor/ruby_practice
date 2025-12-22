@@ -44,8 +44,17 @@
 # 
 #4 --------------------------------------
 #
-i = 0
-until i >= 10 do
- puts "i is #{i}"
- i += 1
-end
+# i = 0
+# until i >= 10 do
+#  puts "i is #{i}"
+#  i += 1
+# end
+# 
+# used a while loop
+# i = 0
+# while i < 10 do
+#   puts "i is #{i}"
+#   i += 1
+# end
+# 
+#5 ------------------------------------
