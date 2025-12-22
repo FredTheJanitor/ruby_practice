@@ -5,7 +5,7 @@
 #   break if i == 10
 # end
 
-# used Until:
+# used until:
 # i = 0
 # until i == 10
 #   puts "i is #{i}"
@@ -20,8 +20,16 @@
 #  puts "i is #{i}"
 #  i += 1
 # end
-i = 0
-10.times do
-  puts "i is #{i}"
-  i += 1
+# 
+#Used times
+# i = 0
+# 10.times do
+#   puts "i is #{i}"
+#   i += 1
+# end
+# 
+#3 --------------------------------------
+#Given:
+while gets.chomp != "yes" do
+  puts "Are we there yet?"
 end
