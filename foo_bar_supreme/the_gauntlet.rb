@@ -59,6 +59,12 @@
 # 
 #5 ------------------------------------
 #
-until gets.chomp == "yes" do
-  puts "Do you like Pizza?"
+# until gets.chomp == "yes" do
+#   puts "Do you like Pizza?"
+# end
+
+loop do
+  unless gets.chomp == "yes"
+    puts "yu like the Za ma boii?"
+  end
 end
