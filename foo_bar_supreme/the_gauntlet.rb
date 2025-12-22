@@ -98,6 +98,11 @@
 #   puts "Alternative fact number #{number}"
 # end
 
-for number in 0...5
-  puts "Alternative fact number #{number}"
-end
+# for number in 0...5
+#   puts "Alternative fact number #{number}"
+# end
+# 
+#9 ------------------------------------
+#
+# 5.upto(10) { |num| print "#{num} " }     #=> 5 6 7 8 9 10
+6.times { |number| print "#{number + 5} " }
