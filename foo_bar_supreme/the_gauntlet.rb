@@ -13,9 +13,15 @@
 # end
 # 
 # 2--------------------------------------
+
 # Given:
+# i = 0
+# while i < 10 do
+#  puts "i is #{i}"
+#  i += 1
+# end
 i = 0
-while i < 10 do
- puts "i is #{i}"
- i += 1
+10.times do
+  puts "i is #{i}"
+  i += 1
 end
