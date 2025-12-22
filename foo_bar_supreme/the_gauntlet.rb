@@ -63,10 +63,22 @@
 #   puts "Do you like Pizza?"
 # end
 
-loop do
-  unless gets.chomp == "yes"
-    puts "yu like the Za ma boii?"
-    next
-  end
-  break
+# used loop do and unless, then added next and break
+# loop do
+#   unless gets.chomp == "yes"
+#     puts "yu like the Za ma boii?"
+#     next
+#   end
+#   break
+# end
+# 
+#6 ------------------------------------
+
+# for i in 0..5
+#   puts "#{i} zombies incoming!"
+# end
+i = 0
+6.times do
+  puts "#{i} zombies incoming!"
+  i += 1
 end
