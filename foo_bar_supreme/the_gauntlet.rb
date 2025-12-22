@@ -30,6 +30,22 @@
 # 
 #3 --------------------------------------
 #Given:
-while gets.chomp != "yes" do
-  puts "Are we there yet?"
+# while gets.chomp != "yes" do
+#   puts "Are we there yet?"
+# end
+
+#  used (false) do while
+# loop do 
+#   puts "Are we there yet?"
+#   if gets.chomp == "yes"
+#     break
+#   end
+# end
+# 
+#4 --------------------------------------
+#
+i = 0
+until i >= 10 do
+ puts "i is #{i}"
+ i += 1
 end
