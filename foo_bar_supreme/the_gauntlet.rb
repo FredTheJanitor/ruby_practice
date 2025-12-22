@@ -77,8 +77,18 @@
 # for i in 0..5
 #   puts "#{i} zombies incoming!"
 # end
-i = 0
-6.times do
-  puts "#{i} zombies incoming!"
-  i += 1
+# i = 0
+# 6.times do
+#   puts "#{i} zombies incoming!"
+#   i += 1
+# end
+# 
+#7 ------------------------------------
+#
+# 5.times do
+#   puts "Hello, world!"
+# end
+
+for i in 1..5
+  puts "Hello, world!"
 end
