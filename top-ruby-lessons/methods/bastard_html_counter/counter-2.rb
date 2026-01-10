@@ -5,9 +5,7 @@ def fetch_page(url)
 end
 
 def just_count_tags(page, tag)
-  pattern = /<#{tag}\b/
-  tags = page.scan(pattern)
-  return tags.length
+  page.scan(/<#{tag}\b/).length
 end
 
 sites = [ "https://www.theodinproject.com", "https://www.Google.com", "https://www.yahoo.com"]
