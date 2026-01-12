@@ -7,10 +7,10 @@ def find_book(title)
   books.find { |b| b.title == title}
 end
 
-book = find_book('Eloquent Ruby')
-p book # prints book object
+book1 = find_book('Eloquent Ruby')
+p book1 # prints book object
 
-book = find_book("POODR")
-p book # prints nil
+book2 = find_book("POODR")
+p book2 # prints nil
 
-book.name #guess what this does
+p book1.title #guess what this does
