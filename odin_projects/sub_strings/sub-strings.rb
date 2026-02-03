@@ -25,7 +25,12 @@ def substrings(string = "", array = [])
   # what does a member of array mean
   # array.each in its most basic sense
   substring_count = array.reduce({}) do |tally, substring|
-    if string.include?(substring)
+    # I think this current check will only see if it exists once
+    # how can I see if it is included multiple times?
+    # 
+    # ok so scan is actually the method i need
+    # scan will return a number of occurences
+    if string.scan(substring)
       tally[substring] += 1
     end
     tally
