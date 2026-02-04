@@ -8,23 +8,38 @@ dictionary = %w(that the is are was this re un de on at as in to by for with or 
 # and get all of them counted
 # lets try select
 
-
-
-dictio
-def substrings(string = "", array = [])
-  substring_count = array.reduce({}) do |tally, substring|
-    number_of_substrings = string.scan(substring)
-    p tally
-    tally[substring] = number_of_substrings
-  end
-  substring_count
+# uses regex to find all instances of a substring within another string
+# substring = dictionary.each
+def substring_counter(string, substring)
+  array_of_matches = string.scan(/(?=(#{substring}))/)
+  array_of_matches.tally.transform_keys { |key| key[0] }
+  # output is like {"substring" => 3}
 end
 
-#ok so tally is more like ["a" "b" "c" ] => { "a" => 1, "b" => 2 etc}
-#
+# use each to create an array of these substrings from regex counter
+def count_all_substrings(string, dictionary)
+  array_of_counts = dictionary.map do |substring|
+    substring_counter(string, substring)
+  end
+  array_of_counts
+end
 
-string = gets.chomp
-substrings(string, dictionary)
+# this should output an array of hashes: need to flatten it to 1d
+# this calls for reduce:
+
+def arr_of_hashes_to_hash(array_of_hashes)
+# found this method on stack overflow: 
+# https://stackoverflow.com/questions/11856407/rails-mapping-array-of-hashes-onto-single-hash
+# looks pretty clean lol - need to look into how merge works more.
+  new_hash = array_of_hashes.reduce(:merge)
+  new_hash
+end
+
+def substrings(string = "", dictionary = [])
+  
+end
+
+
 
 # It should return a hash listing each substring 
 # (case insensitive) that was found in the original string and how many 
