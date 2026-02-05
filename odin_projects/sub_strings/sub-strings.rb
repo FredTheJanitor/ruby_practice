@@ -54,4 +54,16 @@ def substrings(string = "", dictionary = [])
   result_hash
 end
 
+# call the input on a string that the user inputs
+
+puts "Welcome to SubString Counter"
+puts "----------------------------------------------------------------"
+puts "please enter a string to be analyzed"
+string = gets.chomp
+puts "----------------------------------------------------------------"
+puts "Based on the default dictionary, your Substring count is:"
+puts substrings(string, dictionary)
+puts "----------------------------------------------------------------"
+puts "Goodbye"
+
 
