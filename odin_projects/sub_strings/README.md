@@ -57,3 +57,121 @@ After Project Thoughts:
 	better understand it.
 
 	
+-------------------------------------------------------------------------------------------------
+
+Code Deep Dive and reflection:
+	
+	substring_counter method
+		new methods/ concepts
+			?= Look-Forward for Regex expressions
+			
+				the "banana" "ana" problem:
+				normal #scan would only return one
+				"ana" because it discards characters
+				after looking at them.
+
+				"aba" in "abababa" would only find 2
+				and not the middle one.
+
+				?= how look ahead fixes this:
+				?= doesnt move the curser forward
+				when it finds a match, it looks
+				ahead for it, but doesnt throw out
+				characters or anything.
+
+			regex expressions refresher
+
+				the additional () around #{substring}
+				were necessary, because without them
+				scan was just returning blank strings
+				for each find like : ["",""] instead
+				of ["ana","ana"]
+
+				this is because of lookaheads:
+				since lookahead, isnt "capturing"
+				characters, its called a
+				0-width-assertion.  this means it is
+				finding matches without capturing
+				anything.
+
+				the fix is a "capture group" here:
+				the inner () in the regex tells ruby
+				to take a picture of the substring
+				when you come across it.
+
+				Regex Capture groups: () and look-
+				aheads ?= are a Regex thing, not
+				jsut a Ruby thing, and the method of
+				using () to save a snapshot for 
+				later is common in Regex
+
+			#scan
+
+				method for String class:
+				uses a simple string or Regex to
+				find all occurances of a substring
+				in a string.  
+
+				Basic Syntax:
+				string.scan(pattern)
+				or
+				string.scan(pattern) { |match| }
+
+				the pattern is usually something
+				like a regex /.../ means find
+				every 3 consecutive characters
+				(except new-line)
+				output like ["ban", "ana"]
+
+				Capture Groups: ()
+				string.scan(/(...)/) will contain
+				the three character groups in an 
+				array i.e. [["ban"],["ana"]]
+
+				in this case: the look-ahead with
+				the capture group is necessary for
+				capturing the substrings in an
+				array like [["ana"],["ana"]]
+
+				this format was incorrect and
+				leads us to #tally and
+				#transform_keys to fix the format
+
+			#tally#transform_keys
+
+				#tally
+				tally is a new(er) method that
+				counts arrays and provides a nice
+				tally kind of sequence for dupes
+
+				["re","re"].tally => {"re" => 2}
+
+				in our example it would be 
+				something like {["ana"] => 2} at
+				this point, which is closer to
+				the desired format but has the
+				extra nested array, which is
+				undesirable
+
+				#transform_keys
+
+				this lets us... transform keys
+				(go figure!) lol
+				{["ana"] => 2}.tranform_keys do |key|
+					key = key[0]
+				end
+				
+				this would transform the key
+				["ana"] into the first (and only)
+				member of its array
+
+				["ana"][0] = "ana"
+
+				our final result will be in the
+				proper format now { "ana" => 2 } 
+
+			accessing hashes
+
+	arr_of_hashes_to_hash method
+		new methods/ concepts
+			#reduce(:merge)
