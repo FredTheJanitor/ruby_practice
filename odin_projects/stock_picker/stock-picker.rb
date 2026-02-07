@@ -29,7 +29,7 @@ nvidia_close_price = %w(185.41 171.88 174.19 180.34 185.61 191.13 192.51 191.52 
 # Find rolling range, to determine sell point:
 # 
 # for each number in the stock prince
-nvidia_close_price.map.with_index do |price, index|
+results = nvidia_close_price.map.with_index do |price, index|
   # starting range
   price = price.to_f
   price_difference = -999999.99
@@ -50,8 +50,9 @@ nvidia_close_price.map.with_index do |price, index|
     end
     end
   end
-  trade_results
+  trade_results.compact
 end
+results.flatten
 #   instead of looking for a value we could be looking for a range.
 #   for each number in the stock prince, compare that number to subsequent numbers
 #   if the comparison is greater save the index value of the subsequent number and the difference
