@@ -10,7 +10,7 @@
 # Pay attention to edge cases like when the lowest day is the last day or the highest day is the first day.
 
 # create an array of stock prices of a stock over time
-nvidia_close_price = %w(185.41 171.88 174.19 180.34 185.61 191.13 192.51 191.52 188.52 186.47 187.67 184.84 183.32 178.07 186.23 187.05 183.14 185.81 184.94 184.86 185.04 189.11 187.24)
+nvidia_close_price = %w(185.41 171.88 174.19 180.34 185.61 191.13 192.51 191.52 188.52 186.47 187.67 184.84 183.32 178.07 186.23 187.05 183.14 185.81 184.94 184.86 185.04 189.11 187.24).reverse
 
 
 
@@ -31,11 +31,13 @@ nvidia_close_price = %w(185.41 171.88 174.19 180.34 185.61 191.13 192.51 191.52 
 # for each number in the stock prince
 nvidia_close_price.map.with_index do |price, index|
   # starting range
+  price = price.to_f
   price_difference = -999999.99
   # Exceptions: you can never buy at index[-1]
   unless index == -1
     # compare that number to subsequent numbers
     trade_results = nvidia_close_price.map.each_with_index do |price_2, index_2|
+      price_2 = price_2.to_f
       if index_2 > index
         if price_2 - price > price_difference
           price_difference = price_2 - price
@@ -43,7 +45,9 @@ nvidia_close_price.map.with_index do |price, index|
           sell_price = price_2
         end
       end
-    { :buy_index => index, :sell_index => sell_index, :price_difference => price_difference, :buy_price => price, :sell_price => sell_price }
+    unless sell_price == nil
+      { :buy_index => index, :sell_index => sell_index, :price_difference => price_difference, :buy_price => price, :sell_price => sell_price }
+    end
     end
   end
   trade_results
