@@ -171,7 +171,67 @@ Code Deep Dive and reflection:
 				proper format now { "ana" => 2 } 
 
 			accessing hashes
+				
+				the transform_keys method here
+				helped me to access hash keys
+				and change them from arrays to
+				strings, by accessing the string
+				within those arrays.
 
 	arr_of_hashes_to_hash method
 		new methods/ concepts
+
 			#reduce(:merge)
+
+				reduce(:) syntax:
+
+				I have a decent enough
+				understanding of basic reduce
+				usage: but this is a shorthand
+				I was unfamiliar with.
+
+				reduce is just boiling down a
+				collection to one object. used
+				for sums, or adding certain
+				items to a new collection when
+				an empty hash or array is used
+				as the accumulator.
+
+				this shorthand is skipping
+				a bunch of typing, it takes a
+				long-hand .reduce {|ac,el| ac+el}
+				and turns it to .reduce(:+)
+				
+				so basically it takes the
+				method performed on the acc
+				by the element and assumes the
+				order, and that the acc will
+				start as the first element
+				
+				its because its such a common
+				form of reduce to perform a
+				method on the accumulator with
+				the argument of an element that
+				they made a shorthand for it
+
+				Hash#merge method
+				
+				combines two hashes, if a 
+				duplicate key pops up, it takes
+				the 2nd or "newer" hash's value
+				
+-------------------------------------------------------------------------------------------------
+
+Closing Remarks: (2/7/26)
+
+	I woke up at 4AM today, and have been listening to the
+	opening theme for Legend of Zelda: Ocarina of Time.
+	Something about it fills me with nostalgia and peace.
+
+	Instrumental music seems to be the only type of music
+	I can listen to while learning and still feel
+	productive.
+
+	Bitcoin is way down, and I feel like I should buy more
+
+	- Janitor
