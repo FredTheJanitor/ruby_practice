@@ -49,6 +49,7 @@ def stock_picker(price_list)
     current_hash
   end
   puts best_option
+  return [best_option[:buy_index], best_option[:sell_index]]
 end
 
 stock_picker(nvidia_close_price)
