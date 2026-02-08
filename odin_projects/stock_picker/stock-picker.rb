@@ -12,8 +12,6 @@
 # create an array of stock prices of a stock over time
 nvidia_close_price = %w(185.41 171.88 174.19 180.34 185.61 191.13 192.51 191.52 188.52 186.47 187.67 184.84 183.32 178.07 186.23 187.05 183.14 185.81 184.94 184.86 185.04 189.11 187.24).reverse
 
-
-
 # iterate through the array to find the largest gap between a previous low number, and subsequent high number
 # 
 # Find Buy Point: pevious low number, that is before a high number that would provide the greatest gap
@@ -40,7 +38,8 @@ results = nvidia_close_price.map.with_index do |price, index|
       price_2 = price_2.to_f
       if index_2 > index
         if price_2 - price > price_difference
-          price_difference = price_2 - price
+          price_difference_unrounded = price_2 - price
+          price_difference = price_difference_unrounded.round(2)
           sell_index = index_2
           sell_price = price_2
         end
@@ -52,7 +51,15 @@ results = nvidia_close_price.map.with_index do |price, index|
   end
   trade_results.compact
 end
-results.flatten
+trade_options = results.flatten
+best_option = trade_options.reduce do |current_hash, next_hash|
+  if current_hash[:price_difference] < next_hash[:price_difference]
+    current_hash = next_hash
+  end
+  current_hash
+end
+puts best_option
+
 #   instead of looking for a value we could be looking for a range.
 #   for each number in the stock prince, compare that number to subsequent numbers
 #   if the comparison is greater save the index value of the subsequent number and the difference
