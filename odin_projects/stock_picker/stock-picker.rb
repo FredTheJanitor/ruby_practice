@@ -9,31 +9,17 @@
 # You need to buy before you can sell
 # Pay attention to edge cases like when the lowest day is the last day or the highest day is the first day.
 
-# create an array of stock prices of a stock over time
+# ----------------------------------------------------------------------------------------------------------
+
+# real stock prices in reverse order (ending 2/6/26)
 nvidia_close_price = %w(185.41 171.88 174.19 180.34 185.61 191.13 192.51 191.52 188.52 186.47 187.67 184.84 183.32 178.07 186.23 187.05 183.14 185.81 184.94 184.86 185.04 189.11 187.24).reverse
 
-# iterate through the array to find the largest gap between a previous low number, and subsequent high number
-# 
-# Find Buy Point: pevious low number, that is before a high number that would provide the greatest gap
-# find the lowest number, if the number after it is higher, throw it away, if its lower swap it in
-#   this will help with situations like [2,1,3,10]
-#   it will start with 2, then pick up 1, and keep it as the buy point
-#   
-# However, there are exceptions:
-#   [3,10,1,0]
-#   in this situation, youd end up with 0 if you just picked the lowest number, because there is a gap of 7
-#   between 3 and 10, but no gap if you buy at the end, and get nothing, or even 1 to 0 you lose money.
-#   
-# Find rolling range, to determine sell point:
-# 
-# for each number in the stock prince
+# create a list of possible trade scenarios, storing buy points, sell points, and price difference
 results = nvidia_close_price.map.with_index do |price, index|
-  # starting range
   price = price.to_f
   price_difference = -999999.99
-  # Exceptions: you can never buy at index[-1]
+  # Exceptions: you can never buy at the last day, because there is no time to sell
   unless index == -1
-    # compare that number to subsequent numbers
     trade_results = nvidia_close_price.map.each_with_index do |price_2, index_2|
       price_2 = price_2.to_f
       if index_2 > index
@@ -51,7 +37,10 @@ results = nvidia_close_price.map.with_index do |price, index|
   end
   trade_results.compact
 end
+
 trade_options = results.flatten
+
+# select the trade scenario that has the greatest value
 best_option = trade_options.reduce do |current_hash, next_hash|
   if current_hash[:price_difference] < next_hash[:price_difference]
     current_hash = next_hash
@@ -59,12 +48,3 @@ best_option = trade_options.reduce do |current_hash, next_hash|
   current_hash
 end
 puts best_option
-
-#   instead of looking for a value we could be looking for a range.
-#   for each number in the stock prince, compare that number to subsequent numbers
-#   if the comparison is greater save the index value of the subsequent number and the difference
-#     for each range/difference collection of start index, range & sell-point index
-#       keep the group if range > current range
-#       output results. 
-# 
-# Exceptions: you can never buy at index[-1], or sell at [0]
