@@ -51,3 +51,11 @@ love/ care/ societal appreciation.
 Bitcoin is still low, and I wish I had more money to buy the dip, but I also may be a fool.
 
 The only path to success in my life is improving myself, regardless of the situation.
+
+--------------------------------------------------------------------------------------------
+
+After Getting some feedback on my project from ChatGPT:
+
+I realize that my code is sort of double running, the way i have the while loop set up,
+which while clever for the first pass, is doubling up and not taking advantage of the
+array index length mechanic i put in place.

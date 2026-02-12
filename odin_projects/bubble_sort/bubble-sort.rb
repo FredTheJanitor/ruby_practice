@@ -9,10 +9,19 @@ my_array = [2,6,1,5,8,9,3,4,7]
 
 def bubble_sort(array)
     last_index = array.size - 1
+
+    # After Project Reflection:
+    # this doesnt actually do what I thought it did, its running twice and inefficient
     while bubble_swap(last_index, array) do
         last_index -= 1
         bubble_swap(last_index, array)
     end
+    # a more normal way in ruby to do the above is like this:
+    # loop do
+    # sort_happened = false
+    # break unless sort_happened
+    # 
+    # This is how ruby is written and is like, "stylish" or "idiomatic" lol
     array 
 end
 # swap indexes in a bubble-sort way and return whether any swaps occured
