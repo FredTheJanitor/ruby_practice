@@ -25,7 +25,7 @@ def bubble_sort(array)
     end
     p array 
 end
-# swap indexes in a bubble sort way and return whether any swaps occured
+# swap indexes in a bubble-sort way and return whether any swaps occured
 def bubble_swap(last_index, array)
     sort_happened = false
     array.each_with_index do |element, index|
