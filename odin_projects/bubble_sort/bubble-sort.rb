@@ -25,7 +25,7 @@ my_array = [2,6,1,5,8,9,3,4,7]
 def bubble_sort(array)
     last_index = array.size - 1
     # swap indexes in a bubble sort way and return whether any swaps occured... if any swaps occured
-    if bubble_swap(last_index, array)
+    while bubble_swap(last_index, array) do
         # (the largest num should already be at the end)
         last_index -= 1
         # run the iteration through each of the members of the array again - 1 n value
@@ -47,13 +47,13 @@ def bubble_swap(last_index, array)
                 # Swap the two elements position or value in the array
                 array[index], array[index + 1] = array[index + 1], array[index]
                 # Give the switch a true value (within the conditional)
+                
                 sort_happened = true
                 # end the conditional
             end
         end
     end
     sort_happened
-    p array
 end
 
-p bubble_sort(my_array)
+bubble_sort(my_array)
