@@ -25,18 +25,18 @@ my_array = [2,6,1,5,8,9,3,4,7]
 def bubble_sort(array)
     last_index = array.size - 1
     # swap indexes in a bubble sort way and return whether any swaps occured... if any swaps occured
-    if bubble_swap(last_index)
+    if bubble_swap(last_index, array)
         # (the largest num should already be at the end)
         last_index -= 1
         # run the iteration through each of the members of the array again - 1 n value
-        bubble_swap(last_index)
+        bubble_swap(last_index, array)
         # end the conditional
     end
     # Return the sorted array
     return array  
 end
 # swap indexes in a bubble sort way and return whether any swaps occured
-def bubble_swap(last_index)
+def bubble_swap(last_index, array)
 # iterate over the array with the index recognized as well.
     sort_happened = false
     array.each_with_index do |element, index|
