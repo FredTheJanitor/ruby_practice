@@ -27,10 +27,11 @@ def bubble_sort(unsorted_array)
     sort_happened = false
     last_index = unsorted_array.size - 1
     # swap indexes in a bubble sort way and return whether any swaps occured
+    # if any swaps occured
     if bubble_swap_once(last_index)
-        last_index -= 1
-        # run the iteration through each of the members of the array again - 1 n value
         # (the largest num should already be at the end)
+        last_index -= 1
+        #  # run the iteration through each of the members of the array again - 1 n value
         bubble_swap(last_index)
     end
 # end the conditional
