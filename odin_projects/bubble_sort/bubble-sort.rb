@@ -33,7 +33,7 @@ def bubble_sort(array)
         # end the conditional
     end
     # Return the sorted array
-    return array  
+    p array 
 end
 # swap indexes in a bubble sort way and return whether any swaps occured
 def bubble_swap(last_index, array)
@@ -41,7 +41,7 @@ def bubble_swap(last_index, array)
     sort_happened = false
     array.each_with_index do |element, index|
         # for each item in the array (except last element)
-        unless index = last_index
+        unless index == last_index || array[index + 1] == nil
             # if the current element is greater in value than the next element
             if element > array[index + 1]
                 # Swap the two elements position or value in the array
@@ -53,6 +53,7 @@ def bubble_swap(last_index, array)
         end
     end
     sort_happened
+    p array
 end
 
-bubble_sort(my_array)
+p bubble_sort(my_array)
