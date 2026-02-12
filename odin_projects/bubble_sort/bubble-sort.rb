@@ -13,7 +13,7 @@ def bubble_sort(array)
         last_index -= 1
         bubble_swap(last_index, array)
     end
-    p array 
+    array 
 end
 # swap indexes in a bubble-sort way and return whether any swaps occured
 def bubble_swap(last_index, array)
@@ -30,4 +30,20 @@ def bubble_swap(last_index, array)
     sort_happened
 end
 
-bubble_sort(my_array)
+p bubble_sort(my_array)
+# odin example
+p bubble_sort([4,3,78,2,0,2])
+# Already sorted
+p bubble_sort([1,2,3,4,5])
+# Reverse sorted
+p bubble_sort([10,9,8,7,6,5,4,3,2,1])
+# Empty
+p bubble_sort([])
+# One element
+p bubble_sort([1])
+# Two element
+p bubble_sort([2,1])
+# Same elements
+p bubble_sort([3,3,3,3,3])
+# Negatives
+p bubble_sort([-5,0,-2,3,1])
