@@ -25,26 +25,33 @@ my_array = [2,6,1,5,8,9,3,4,7]
 def bubble_sort(unsorted_array)
     # Create a variable with a false value to act as a switch to trigger if the array is fully sorted
     sort_happened = false
-    # iterate over the array with the index recognized as well.
-    unsorted_array.each_with_index do |element, index|
-        # for each item in the array
-        # if the current element is greater in value than the next element
-        if element > unsorted_array[index + 1]
-            # Swap the two elements position or value in the array
-            unsorted_array[index], unsorted_array[index + 1] = unsorted_array[index + 1], unsorted_array[index]
-            # Give the switch a true value (within the conditional)
-            sort_happened = true
-            # end the conditional
-        end
-        # end the for loop      
+    last_index = unsorted_array.size - 1
+    # swap indexes in a bubble sort way and return whether any swaps occured
+    if bubble_swap_once(last_index)
+        last_index -= 1
+        # run the iteration through each of the members of the array again - 1 n value
+        # (the largest num should already be at the end)
+        bubble_swap(last_index)
     end
-# unless the value of the switch is false
-# 
-# run the iteration through each of the members of the array again - 1 n value 
-# (the largest num should already be at the end)
-# 
 # end the conditional
 # 
 # Return the sorted array
   
+end
+def bubble_swap(last_index)
+# iterate over the array with the index recognized as well.
+    unsorted_array.each_with_index do |element, index|
+        # for each item in the array (except last element)
+        unless index = last_index
+            # if the current element is greater in value than the next element
+            if element > unsorted_array[index + 1]
+                # Swap the two elements position or value in the array
+                unsorted_array[index], unsorted_array[index + 1] = unsorted_array[index + 1], unsorted_array[index]
+                # Give the switch a true value (within the conditional)
+                sort_happened = true
+                # end the conditional
+            end
+        end
+    end
+    sort_happened
 end
