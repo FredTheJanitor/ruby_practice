@@ -39,13 +39,13 @@ end
 def bubble_swap(last_index)
 # iterate over the array with the index recognized as well.
     sort_happened = false
-    unsorted_array.each_with_index do |element, index|
+    array.each_with_index do |element, index|
         # for each item in the array (except last element)
         unless index = last_index
             # if the current element is greater in value than the next element
-            if element > unsorted_array[index + 1]
+            if element > array[index + 1]
                 # Swap the two elements position or value in the array
-                unsorted_array[index], unsorted_array[index + 1] = unsorted_array[index + 1], unsorted_array[index]
+                array[index], array[index + 1] = array[index + 1], array[index]
                 # Give the switch a true value (within the conditional)
                 sort_happened = true
                 # end the conditional
