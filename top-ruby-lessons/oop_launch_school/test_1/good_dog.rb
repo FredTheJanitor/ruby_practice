@@ -5,8 +5,9 @@ module Speak
 end
 
 class GoodDog
-  def initialize
+  def initialize(name)
     puts "bitch check me out im initialized"
+    @name = name
   end
   include Speak
 end
