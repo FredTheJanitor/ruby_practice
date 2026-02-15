@@ -5,6 +5,9 @@ module Speak
 end
 
 class GoodDog
+  def speak(sound)
+    puts "and the dog said $#{sound}"
+  end
   include Speak
 end
 
