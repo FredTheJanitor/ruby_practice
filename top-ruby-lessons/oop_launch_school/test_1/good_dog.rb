@@ -9,5 +9,5 @@ class GoodDog
 end
 
 sparky = GoodDog.new("Sparky")
-sparky.speak
+puts sparky.speak
 
