@@ -1,27 +1,13 @@
-module Speak
-  def speak(sound)
-    puts sound
-  end
-end
-
 class GoodDog
   def initialize(name)
-    puts "bitch check me out im initialized"
     @name = name
   end
-  include Speak
+
+  def speak
+    "Arf!"
+  end
 end
 
-class HumanBeing
-  include Speak
-end
-
-dave = HumanBeing.new
-sparky = GoodDog.new("Spark")
-
-
-sparky.speak("woof muthafucka")
-dave.speak("howdy")
-puts GoodDog.ancestors
-puts HumanBeing.ancestors
+sparky = GoodDog.new("Sparky")
+sparky.speak
 

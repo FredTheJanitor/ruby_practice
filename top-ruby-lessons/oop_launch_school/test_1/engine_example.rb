@@ -4,8 +4,12 @@ class Engine
   end
 end
 
+class Passenger
+end
+
 class Car
-  def initialize
+  def initialize(passengers)
+    @passengers = passengers
     @engine = Engine.new
   end
   def start
@@ -13,5 +17,6 @@ class Car
   end
 end
 
-my_car = Car.new
+passengers = [Passenger.new, Passenger.new]
+my_car = Car.new(passengers)
 my_car.start
