@@ -17,7 +17,7 @@ class HumanBeing
 end
 
 dave = HumanBeing.new
-sparky = GoodDog.new
+sparky = GoodDog.new("Spark")
 
 
 sparky.speak("woof muthafucka")
