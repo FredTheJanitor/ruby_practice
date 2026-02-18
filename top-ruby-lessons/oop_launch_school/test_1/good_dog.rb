@@ -9,6 +9,7 @@ class GoodDog
 
   def name=(name)
     @name = name
+    "suck the grapes"
   end
 
   def speak
