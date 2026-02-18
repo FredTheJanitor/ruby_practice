@@ -3,14 +3,16 @@ class GoodDog
     @name = name
   end
 
-  def name
-    @name
-  end
+  # def name
+  #   @name
+  # end
 
-  def name=(name)
-    @name = name
-    "suck the grapes"
-  end
+  # def name=(name)
+  #   @name = name
+  #   "suck the grapes"
+  # end
+  # both of these are replaced by the following shorthand:
+  attr_accessor :name
 
   def speak
     "#{@name} says Arf!"
