@@ -12,7 +12,13 @@ class GoodDog
   #   "setters ignore me, fish want me ;)"
   # end
   # both of these are replaced by the following shorthand:
-  attr_accessor :name
+  attr_accessor :name, :height, :weight
+
+  def change_info(n,h,w)
+    @name = n
+    @height = h
+    @weight = w
+  end
 
   def speak
     "#{name} says Arf!"
