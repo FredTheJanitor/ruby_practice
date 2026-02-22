@@ -9,7 +9,7 @@ class GoodDog
 
   # def name=(name)
   #   @name = name
-  #   "suck the grapes"
+  #   "setters ignore me, fish want me ;)"
   # end
   # both of these are replaced by the following shorthand:
   attr_accessor :name
