@@ -22,15 +22,14 @@ class GoodDog
   end
 end
 
-sparky = GoodDog.new("Sparky", "6.9 inches", "6 lbs")
+sparky = GoodDog.new("Sparky", "8 inches", "7 lbs")
 puts sparky.speak
 
 fido = GoodDog.new("Fido", "1000 feet", "1,000,000 lbs")
 puts fido.speak
 
-puts sparky.name
+puts sparky.info
 
-sparky.name = "Lucifer Almighty, the Destroyer of God"
-puts sparky.name
+sparky.change_info("Lucifer Almighty, the Destroyer of God", "6.6 inches", "6.666 lbs")
 
 puts sparky.info
