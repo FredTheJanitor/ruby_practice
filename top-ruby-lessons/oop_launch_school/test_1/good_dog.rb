@@ -4,7 +4,7 @@ class GoodDog
   def initialize(n, h, w)
     @name = n
     @height = h
-    @weight = h
+    @weight = w
   end  
 
   def change_info(n,h,w)
