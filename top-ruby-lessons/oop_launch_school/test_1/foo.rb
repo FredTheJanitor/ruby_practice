@@ -1,5 +1,5 @@
 class MyCar
-  attr_accessor :year, :color, :model
+  attr_accessor :year, :color, :model, :speed, :stall, :crash, :running
 
   def initialize(year, color, model)
     @year = year
@@ -27,7 +27,13 @@ class MyCar
   end
 
   def speed_up
-    self.speed += 5
+    if running == "off"
+      self.stall = "yes"
+    end
+    if running == "on"
+      self.speed += 5
+    end
+    
   end
 
   def brake
@@ -42,3 +48,20 @@ class MyCar
 
 end
 
+my_car = MyCar.new(666, "satanic black", "Chariot of the Dead")
+
+puts my_car.info
+my_car.speed_up
+puts my_car.info
+my_car.turn_off
+puts my_car.info
+my_car.start
+puts my_car.info
+my_car.speed_up
+puts my_car.info
+my_car.speed_up
+puts my_car.info
+my_car.brake
+puts my_car.info
+my_car.turn_off
+puts my_car.info
