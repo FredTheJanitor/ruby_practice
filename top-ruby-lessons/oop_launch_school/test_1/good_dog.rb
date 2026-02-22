@@ -15,7 +15,7 @@ class GoodDog
   attr_accessor :name
 
   def speak
-    "#{@name} says Arf!"
+    "#{name} says Arf!"
   end
 end
 
