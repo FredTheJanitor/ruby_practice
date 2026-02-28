@@ -38,7 +38,7 @@ class MyCar
   end
 
   def speed_up
-    unless running
+    unless running?
       @stall = true
     end
     if running?
@@ -76,3 +76,6 @@ my_car.brake
 puts my_car.info
 my_car.turn_off
 puts my_car.info
+puts my_car.color
+my_car.color = "red"
+puts my_car.color
