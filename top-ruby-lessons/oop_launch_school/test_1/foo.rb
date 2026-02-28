@@ -1,6 +1,6 @@
 class MyCar
-  attr_accessor :year, :color, :model
-  attr_reader :speed, :stall, :crash, :running
+  attr_accessor :color, :model
+  attr_reader :speed, :stall, :crash, :running, :year
 
   def initialize(year, color, model)
     @year = year
@@ -10,6 +10,10 @@ class MyCar
     @running = false
     @stall = false
     @crash = false
+  end
+
+  def spraypaint(paint_color)
+    self.color = paint_color
   end
 
   def running?
@@ -78,4 +82,7 @@ my_car.turn_off
 puts my_car.info
 puts my_car.color
 my_car.color = "red"
+puts my_car.color
+puts my_car.year
+my_car.spraypaint("indigo")
 puts my_car.color
