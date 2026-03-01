@@ -33,6 +33,11 @@ class GoodDog
   def info
     "#{name} weighs #{weight} and is #{height} tall."
   end
+
+  def to_s
+    "F*** the b****** and the h******* here we gooooo"
+  end
+
 end
 puts GoodDog.total_number_of_dogs
 sparky = GoodDog.new("Sparky", "8 inches", "7 lbs", 2)
@@ -53,3 +58,7 @@ puts GoodDog.what_am_i?
 puts GoodDog.total_number_of_dogs
 
 puts sparky.age
+
+puts sparky
+p sparky
+puts "hello i am going to input sparky now with a hashtag type literal whatever thing:  #{sparky}"
