@@ -9,18 +9,19 @@ class GoodDog
   end
 
   def age
-    "#{self.age * DOG_YEARS} dog years old"
+    "#{@age * DOG_YEARS} dog years old"
   end
 
   def self.total_number_of_dogs
     @@number_of_dogs
   end
 
-  def initialize(n, h, w)
+  def initialize(n, h, w, a)
     @@number_of_dogs += 1
     @name = n
     @height = h
     @weight = w
+    @age = a
   end  
 
   def change_info(n,h,w)
@@ -38,10 +39,10 @@ class GoodDog
   end
 end
 puts GoodDog.total_number_of_dogs
-sparky = GoodDog.new("Sparky", "8 inches", "7 lbs")
+sparky = GoodDog.new("Sparky", "8 inches", "7 lbs", 2)
 puts sparky.speak
 puts GoodDog.total_number_of_dogs
-fido = GoodDog.new("Fido", "1000 feet", "1,000,000 lbs")
+fido = GoodDog.new("Fido", "1000 feet", "1,000,000 lbs", 3)
 puts GoodDog.total_number_of_dogs
 puts fido.speak
 
@@ -54,3 +55,5 @@ puts sparky.info
 puts GoodDog.what_am_i?
 
 puts GoodDog.total_number_of_dogs
+
+puts sparky.age
