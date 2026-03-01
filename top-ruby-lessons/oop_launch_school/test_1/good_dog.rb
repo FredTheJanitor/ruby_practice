@@ -2,10 +2,14 @@ class GoodDog
   DOG_YEARS = 7
   @@number_of_dogs = 0
   
-  attr_accessor :name, :height, :weight
+  attr_accessor :name, :height, :weight, :age
 
   def self.what_am_i?
     "i am class: #{self}"
+  end
+
+  def age
+    "#{self.age * DOG_YEARS} dog years old"
   end
 
   def self.total_number_of_dogs
