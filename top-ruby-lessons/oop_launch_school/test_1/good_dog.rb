@@ -1,10 +1,16 @@
 class GoodDog
   @@number_of_dogs = 0
+  
   attr_accessor :name, :height, :weight
 
   def self.what_am_i?
     "i am class: #{self}"
   end
+
+  def self.total_number_of_dogs?
+    @@number_of_dogs
+  end
+
   def initialize(n, h, w)
     @@number_of_dogs += 1
     @name = n
@@ -40,3 +46,5 @@ sparky.change_info("Lucifer Almighty, the Destroyer of God", "6.6 inches", "6.66
 puts sparky.info
 
 puts GoodDog.what_am_i?
+
+puts GoodDog.total_number_of_dogs?
