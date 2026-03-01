@@ -17,7 +17,7 @@ class GoodDog
     @name = n
     @height = h
     @weight = w
-    @age = a * DOG_YEARS
+    self.age = a * DOG_YEARS
   end  
 
   def change_info(n,h,w)
