@@ -8,10 +8,6 @@ class GoodDog
     "i am class: #{self}"
   end
 
-  def age
-    "#{@age * DOG_YEARS} dog years old"
-  end
-
   def self.total_number_of_dogs
     @@number_of_dogs
   end
@@ -21,7 +17,7 @@ class GoodDog
     @name = n
     @height = h
     @weight = w
-    @age = a
+    @age = a * DOG_YEARS
   end  
 
   def change_info(n,h,w)
