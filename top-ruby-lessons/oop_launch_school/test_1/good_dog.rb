@@ -7,7 +7,7 @@ class GoodDog
     "i am class: #{self}"
   end
 
-  def self.total_number_of_dogs?
+  def self.total_number_of_dogs
     @@number_of_dogs
   end
 
@@ -32,12 +32,12 @@ class GoodDog
     "#{name} weighs #{weight} and is #{height} tall."
   end
 end
-puts GoodDog.total_number_of_dogs?
+puts GoodDog.total_number_of_dogs
 sparky = GoodDog.new("Sparky", "8 inches", "7 lbs")
 puts sparky.speak
-puts GoodDog.total_number_of_dogs?
+puts GoodDog.total_number_of_dogs
 fido = GoodDog.new("Fido", "1000 feet", "1,000,000 lbs")
-puts GoodDog.total_number_of_dogs?
+puts GoodDog.total_number_of_dogs
 puts fido.speak
 
 puts sparky.info
@@ -48,4 +48,4 @@ puts sparky.info
 
 puts GoodDog.what_am_i?
 
-puts GoodDog.total_number_of_dogs?
+puts GoodDog.total_number_of_dogs
