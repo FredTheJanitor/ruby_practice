@@ -1,4 +1,5 @@
 class GoodDog
+  DOG_YEARS = 7
   @@number_of_dogs = 0
   
   attr_accessor :name, :height, :weight
