@@ -21,6 +21,8 @@ class GoodDog
     self
   end
 
+  puts self
+
 end
   sparky = GoodDog.new("Sparkison", "1000 miles", "a ton of feathers")
   p sparky.what_is_self
