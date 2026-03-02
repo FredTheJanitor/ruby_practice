@@ -1,0 +1,19 @@
+class GoodDog
+  attr_accessor :name, :height, :weight
+  def initialize(name, height, weight)
+    self.name = name
+    self.height = height
+    self.weight = weight
+  end
+
+  def change_info(n, h, w)
+    self.name = n
+    self.height = h
+    self.weight = w
+  end
+
+  def info
+    "I am a string with name: #{self.name} height: #{self.height} and weight: #{self.weight}"
+  end
+
+end
