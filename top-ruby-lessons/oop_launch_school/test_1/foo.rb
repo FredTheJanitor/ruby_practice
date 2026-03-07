@@ -1,6 +1,10 @@
 class MyCar
   attr_accessor :color, :model
-  attr_reader :speed, :stall, :crash, :running, :year
+  attr_reader :speed, :stall, :crash, :running, :year, :miles_traveled, :fuel_consumed
+
+  def self.gas_mileage(miles, gallons)
+    p "#{miles / gallons} mpg"
+  end
 
   def initialize(year, color, model)
     @year = year
@@ -10,6 +14,8 @@ class MyCar
     @running = false
     @stall = false
     @crash = false
+    @miles_traveled = 0
+    @fuel_consumed = 0
   end
 
   def spraypaint(paint_color)
@@ -28,6 +34,7 @@ class MyCar
 
   def start
     if running?
+      @fuel_consumed += 0.25
       return @stall = true
     end
     @running = true
@@ -44,9 +51,12 @@ class MyCar
   def speed_up
     unless running?
       @stall = true
+      @fuel_consumed += 0.25
     end
     if running?
       @speed += 5
+      @miles_traveled += 1
+      @fuel_consumed += 0.5
     end
     
   end
@@ -86,3 +96,4 @@ puts my_car.color
 puts my_car.year
 my_car.spraypaint("indigo")
 puts my_car.color
+MyCar.gas_mileage(13,351)
