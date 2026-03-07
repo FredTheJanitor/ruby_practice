@@ -11,3 +11,4 @@ class Bear < Animal
 end
 
 bear = Bear.new("blue")
+p bear
