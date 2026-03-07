@@ -96,4 +96,4 @@ puts my_car.color
 puts my_car.year
 my_car.spraypaint("indigo")
 puts my_car.color
-MyCar.gas_mileage(13,351)
+MyCar.gas_mileage(200, 1)
