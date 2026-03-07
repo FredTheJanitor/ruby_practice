@@ -22,5 +22,6 @@ end
 
 sparky = GoodDog.new("Sparky")
 paws = Cat.new
+# checks most local class before super class for method
 puts sparky.speak
 puts paws.speak
