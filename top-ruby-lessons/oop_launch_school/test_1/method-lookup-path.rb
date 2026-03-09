@@ -18,6 +18,7 @@ end
 
 class Animal
   include Walkable
+  include Swimmable
 
   def speak
     "greetings, an animal is what I am!"
@@ -31,3 +32,4 @@ fido = Animal.new
 
 puts fido.speak
 puts fido.walk
+puts fido.swim
