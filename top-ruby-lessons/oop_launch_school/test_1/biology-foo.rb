@@ -20,10 +20,15 @@ class Dog < Mammal
   include Swimmable
 end
 
+class Pug < Dog
+end
+
 sparky = Dog.new
 neemo = Fish.new
+uggles = Pug.new
 paws = Cat.new
 
 p sparky.swim
 p neemo.swim
+p uggles.swim
 p paws.swim
