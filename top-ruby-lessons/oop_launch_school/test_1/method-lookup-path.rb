@@ -26,3 +26,8 @@ end
 
 puts "--Animal path fpr method look up (ancestors)--"
 puts Animal.ancestors
+
+fido = Animal.new
+
+puts fido.speak
+puts fido.walk
