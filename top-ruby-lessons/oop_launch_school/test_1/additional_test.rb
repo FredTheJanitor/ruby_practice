@@ -20,7 +20,7 @@ class BadDog < Animal
   attr_accessor :age
 
   def initialize(age, name)
-    super()
+    super(name)
     self.age = age
   end
 end
