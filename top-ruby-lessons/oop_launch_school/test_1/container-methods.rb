@@ -5,4 +5,6 @@ module Conversions
 end
 
 value = Conversions.farenheit_to_celsius(32)
+another_value = Conversions::farenheit_to_celsius(34)
 p value
+p another_value 
