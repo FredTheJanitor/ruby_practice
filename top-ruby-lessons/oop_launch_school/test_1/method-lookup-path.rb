@@ -18,17 +18,23 @@ end
 
 class Animal
   include Walkable
-  include Swimmable
+  
 
   def speak
     "greetings, an animal is what I am!"
   end
 end
 
-puts "--Animal path fpr method look up (ancestors)--"
-puts Animal.ancestors
+class GoodDog < Animal
+  include Swimmable
+  include Climable
 
-fido = Animal.new
+end
+
+puts "--Animal path fpr method look up (ancestors)--"
+puts GoodDog.ancestors
+
+fido = GoodDog.new
 
 puts fido.speak
 puts fido.walk
