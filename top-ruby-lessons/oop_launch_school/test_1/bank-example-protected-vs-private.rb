@@ -22,5 +22,5 @@ end
 user1 = BankAccount.new("Alice", 100)
 user2 = BankAccount.new("Bob", 50)
 
-puts user1.richer_than(user2)   # works
+puts user1.richer_than?(user2)   # works
 # puts user1.balance            # Error! (protected method)
