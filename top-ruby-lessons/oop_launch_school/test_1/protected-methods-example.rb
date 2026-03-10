@@ -17,3 +17,5 @@ sterling = Person.new(42)
 
 p malory.older?(sterling)
 p sterling.older?(malory)
+
+malory.age
