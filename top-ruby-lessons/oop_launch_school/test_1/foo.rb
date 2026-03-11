@@ -126,3 +126,5 @@ puts Vehicle.total_number_of_vehicles
 my_truck = MyTruck.new(123, "red", "pickup")
 puts Vehicle.total_number_of_vehicles
 my_car.take_communion
+p MyCar.ancestors
+p MyTruck.ancestors
