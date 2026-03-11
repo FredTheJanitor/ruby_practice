@@ -1,12 +1,29 @@
+module Carianity
+  def take_communion
+    p "yum, the oil of the savior"
+  end
+  def go_to_church
+    p "its not like one of THOSE churches, ours is different... you should come!"
+  end
+  
+end
+
 class Vehicle
   attr_accessor :color, :model
   attr_reader :speed, :stall, :crash, :running, :year, :miles_traveled, :fuel_consumed
+
+  @@vehicle_count = 0
 
   def self.gas_mileage(miles, gallons)
     p "#{miles / gallons} mpg"
   end
 
+  def self.total_number_of_vehicles
+    @@vehicle_count
+  end
+
   def initialize(year, color, model)
+    @@vehicle_count += 1
     @year = year
     @color = color
     @model = model
@@ -74,6 +91,7 @@ end
 
 class MyCar < Vehicle
   CAR_RELIGION = "Carianity"
+  include Carianity
 end
 
 class MyTruck < Vehicle
@@ -104,3 +122,7 @@ puts my_car.year
 my_car.spraypaint("indigo")
 puts my_car.color
 MyCar.gas_mileage(200, 1)
+puts Vehicle.total_number_of_vehicles
+MyTruck.new(123, "red", "pickup")
+puts Vehicle.total_number_of_vehicles
+my_car.take_communion
