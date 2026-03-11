@@ -85,7 +85,13 @@ class Vehicle
   end
 
   def info
-    "year: #{year}, color: #{color}, model: #{model}, speed: #{speed}, running: #{running}, stalled: #{stall}, crash: #{crash}"
+    "year: #{year}, age: #{age}, color: #{color}, model: #{model}, speed: #{speed}, running: #{running}, stalled: #{stall}, crash: #{crash}"
+  end
+
+  private
+
+  def age
+    Time.now.year - self.year
   end
 end
 
@@ -123,8 +129,10 @@ my_car.spraypaint("indigo")
 puts my_car.color
 MyCar.gas_mileage(200, 1)
 puts Vehicle.total_number_of_vehicles
-my_truck = MyTruck.new(123, "red", "pickup")
+my_truck = MyTruck.new(1966, "red", "pickup")
 puts Vehicle.total_number_of_vehicles
 my_car.take_communion
 p MyCar.ancestors
 p MyTruck.ancestors
+puts my_truck.info
+puts my_truck.age
