@@ -6,3 +6,6 @@ class Viking
     @health = health
   end
 end
+
+brun = Viking.new("Brun", 65, 13, 100)
+p brun
