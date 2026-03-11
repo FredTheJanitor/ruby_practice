@@ -12,6 +12,10 @@ class Child
   def send
     p "send from child, DISRUPTING THE UNIVERSE MWAHAHA"
   end
+
+  def instance_of?
+    p "I am a fake instance"
+  end
 end
 
 child = Child.new
@@ -25,3 +29,5 @@ lad = Child.new
 c = Child.new
 p c.instance_of? Child
 p c.instance_of? Parent
+
+# only common overwrite is to_s, for formatting

@@ -1,4 +1,4 @@
-class MyCar
+class Vehicle
   attr_accessor :color, :model
   attr_reader :speed, :stall, :crash, :running, :year, :miles_traveled, :fuel_consumed
 
@@ -70,7 +70,14 @@ class MyCar
   def info
     "year: #{year}, color: #{color}, model: #{model}, speed: #{speed}, running: #{running}, stalled: #{stall}, crash: #{crash}"
   end
+end
 
+class MyCar < Vehicle
+  CAR_RELIGION = "Carianity"
+end
+
+class MyTruck < Vehicle
+  TRUCK_RELIGION = "Trislam"
 end
 
 my_car = MyCar.new(666, "satanic black", "Chariot of the Dead")
