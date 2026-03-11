@@ -123,6 +123,6 @@ my_car.spraypaint("indigo")
 puts my_car.color
 MyCar.gas_mileage(200, 1)
 puts Vehicle.total_number_of_vehicles
-MyTruck.new(123, "red", "pickup")
+my_truck = MyTruck.new(123, "red", "pickup")
 puts Vehicle.total_number_of_vehicles
 my_car.take_communion
