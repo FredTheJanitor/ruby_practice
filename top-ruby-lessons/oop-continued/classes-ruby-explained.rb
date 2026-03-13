@@ -23,6 +23,9 @@ class Viking
         puts "#{name} died a warrior's death!"
       end
   end
+  def sleep
+    health += 1 unless health >=99
+  end
 
   
 end
@@ -30,5 +33,7 @@ end
 brun = Viking.new("Brun", 65, 13, 100)
 p brun
 grob = Viking.new("Grob", 32, 4, 43)
+p grob
+grob.sleep
 p grob
 brun.attacks(grob)
