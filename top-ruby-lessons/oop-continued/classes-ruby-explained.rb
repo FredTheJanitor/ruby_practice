@@ -1,8 +1,5 @@
 class Viking
   attr_accessor :health
-
-
-  attr_accessor :health
   attr_reader :name, :strength, :beard_length 
 
   def initialize(name, strength, beard_length, health)
