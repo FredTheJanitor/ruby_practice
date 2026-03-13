@@ -24,7 +24,7 @@ class Viking
       end
   end
   def sleep
-    health += 1 unless health >=99
+    self.health += 1 unless health >=99
   end
 
   
