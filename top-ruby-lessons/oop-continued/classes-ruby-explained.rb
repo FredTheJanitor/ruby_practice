@@ -56,16 +56,15 @@ class Viking < Person
   end
 
   def attack(enemy)
+    if enemy.dead?
+      puts "Wouldn't make sense to attack a dead man"
+      return false
+    end
     puts "#{name} attacks #{enemy.name} and does #{strength} damage"
     enemy.take_damage(strength)
     if enemy.health <= 0
       puts "#{enemy.name} was slain by #{name}"
     end
-  end
-  
-  def take_damage(damage_amount)
-    @health -= damage_amount
-      die if @health <= 0
   end
   
   def sleep
@@ -78,6 +77,11 @@ class Viking < Person
   end
 
   protected
+
+  def take_damage(damage_amount)
+    @health -= damage_amount
+      die if @health <= 0
+  end
 
   private
 
@@ -107,7 +111,7 @@ warrior1.say_hi
 grob.heal
 p grob
 
-3.times do 
+5.times do 
   brun.attack(grob)
 end
 
