@@ -1,4 +1,16 @@
-class Viking
+class Person
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def say_hi
+    puts "hi my name is #{name}"
+  end
+end
+
+class Viking < Person
   attr_accessor :health
   attr_reader :name, :strength, :beard_length
 
@@ -68,3 +80,4 @@ puts sten.inspect
 
 warrior1 = Viking.create_warrior(Viking.random_name)
 p warrior1
+warrior1.say_hi
