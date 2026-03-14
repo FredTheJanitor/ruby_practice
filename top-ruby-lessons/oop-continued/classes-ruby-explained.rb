@@ -1,12 +1,14 @@
 class Viking
   attr_accessor :health
-  attr_reader :name, :strength, :beard_length 
+  attr_reader :name, :strength, :beard_length
 
-  def initialize(name, strength, beard_length, health)
+  @@starting_health = 100
+
+  def initialize(name, strength, beard_length)
     @name = name
     @strength = strength
     @beard_length = beard_length
-    @health = health
+    @health = @@starting_health
   end
   def attacks(enemy)
     puts "#{name} attacks #{enemy.name} and does #{strength} damage"
@@ -25,15 +27,16 @@ class Viking
   end
   def sleep
     self.health += 1 unless health >=99
+    puts "#{name} took a nap, #{name}'s health is now #{health}"
   end
 
   
 end
 
-brun = Viking.new("Brun", 65, 13, 100)
+brun = Viking.new("Brun", 65, 13)
 p brun
-grob = Viking.new("Grob", 32, 4, 43)
-p grob
-grob.sleep
+grob = Viking.new("Grob", 32, 4)
 p grob
 brun.attacks(grob)
+grob.sleep
+p grob
