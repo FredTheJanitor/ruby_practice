@@ -60,7 +60,6 @@ class Viking < Person
     enemy.takes_damage(strength)
     if enemy.health <= 0
       puts "#{enemy.name} was slain by #{name}"
-      enemy.health = 0 
     end
   end
   
@@ -74,14 +73,18 @@ class Viking < Person
     puts "#{name} took a nap, #{name}'s health is now #{health}"
   end
 
+  def dead?
+    @dead
+  end
+
   protected
 
   private
 
   def die
     @health = 0
-    puts "#{name} died a warrior's death!"
     @dead = true
+    puts "#{name} died a warrior's death and is headed to Valhalla!"
   end
   
 end
