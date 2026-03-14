@@ -55,15 +55,15 @@ class Viking < Person
     puts "Ready for battle!"
   end
 
-  def attacks(enemy)
+  def attack(enemy)
     puts "#{name} attacks #{enemy.name} and does #{strength} damage"
-    enemy.takes_damage(strength)
+    enemy.take_damage(strength)
     if enemy.health <= 0
       puts "#{enemy.name} was slain by #{name}"
     end
   end
   
-  def takes_damage(damage_amount)
+  def take_damage(damage_amount)
     @health -= damage_amount
       die if @health <= 0
   end
@@ -93,7 +93,7 @@ brun = Viking.new("Brun", 65, 18, 13)
 p brun
 grob = Viking.new("Grob", 32, 7, 4)
 p grob
-brun.attacks(grob)
+brun.attack(grob)
 grob.sleep
 p grob
 
@@ -108,5 +108,7 @@ grob.heal
 p grob
 
 3.times do 
-  brun.attacks(grob)
+  brun.attack(grob)
 end
+
+# brun.die wont work because made private
