@@ -25,6 +25,7 @@ class Viking < Person
     @strength = strength
     @beard_length = beard_length
     @health = health
+    @dead = false
   end
 
   def self.create_warrior(name)
@@ -62,18 +63,26 @@ class Viking < Person
       enemy.health = 0 
     end
   end
+  
   def takes_damage(damage_amount)
     @health -= damage_amount
-      if @health <= 0
-        @health = 0
-        puts "#{name} died a warrior's death!"
-      end
+      die if @health <= 0
   end
+  
   def sleep
     self.health += 1 unless health >=99
     puts "#{name} took a nap, #{name}'s health is now #{health}"
   end
 
+  protected
+
+  private
+
+  def die
+    @health = 0
+    puts "#{name} died a warrior's death!"
+    @dead = true
+  end
   
 end
 
@@ -94,3 +103,7 @@ warrior1.say_hi
 
 grob.heal
 p grob
+
+3.times do 
+  brun.attacks(grob)
+end
