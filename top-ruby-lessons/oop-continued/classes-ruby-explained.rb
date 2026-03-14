@@ -1,5 +1,9 @@
 class Person
   attr_accessor :name
+  MAX_HEALTH = 120
+  def heal
+    self.health += 1 unless self.health + 1 > MAX_HEALTH
+  end
 
   def initialize(name)
     @name = name
@@ -44,6 +48,12 @@ class Viking < Person
     end
   end
 
+  def heal
+    # self.health = [self.health + 5, MAX_HEALTH].min
+    10.times {super}
+    puts "Ready for battle!"
+  end
+
   def attacks(enemy)
     puts "#{name} attacks #{enemy.name} and does #{strength} damage"
     enemy.takes_damage(strength)
@@ -81,3 +91,6 @@ puts sten.inspect
 warrior1 = Viking.create_warrior(Viking.random_name)
 p warrior1
 warrior1.say_hi
+
+grob.heal
+p grob
