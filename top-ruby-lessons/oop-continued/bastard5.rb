@@ -1,5 +1,8 @@
 require "open-uri"
-remote_base_url = "http://en.wikipedia.org/wiki"
+remote_base_url = "https://en.wikipedia.org/wiki"
+
+#the mask
+headers = { "User-Agent" => "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
 [1900, 1910, "xj3490", 2000].each do |yr|
   
@@ -7,8 +10,8 @@ remote_base_url = "http://en.wikipedia.org/wiki"
 
   begin
     url = "#{remote_base_url}/#{yr}"
-    puts "Getting page #{url}}"
-    rpage = open(url)
+    puts "Getting page #{url}"
+    rpage = URI.open(url, headers)
   rescue StandardError => e
     puts "\tError: #{e}"
     if retries > 0
