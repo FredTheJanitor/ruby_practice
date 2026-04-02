@@ -1,5 +1,6 @@
-while 1
-  begin
+begin
+  while 1
+  
     puts "Enter a number>>"
     if num = Kernel.gets.match(/\d+/)
       num = num[0]
@@ -7,8 +8,10 @@ while 1
     else
       puts "Erroneous input! Try again..."
     end
-    puts "Press ctrl-C when you get bored"
-  rescue Interrupt => e
-    puts "what is Signal.trap??"
+    puts "---------------------------------------"
+    puts "\tPress ctrl-C when you get bored"
+    puts "---------------------------------------"  
   end
+rescue Interrupt => e
+    puts "\twhat is Signal.trap??"
 end
