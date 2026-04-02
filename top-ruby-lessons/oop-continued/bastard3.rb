@@ -8,11 +8,12 @@ end_year = 2000
 
 (start_year..end_year).each do |yr|
   begin
-    rpage = open("#{remote_base_url}/#{yr}")
+    rpage = URI.open("#{remote_base_url}/#{yr}")
   rescue StandardError=>e
     puts "Error: #{e}"
   else
     rdata = rpage.read
+    puts "Success: grabbed #{remote_base_url}/#{yr}!"
   ensure
     puts "sleeping"
     sleep 5
