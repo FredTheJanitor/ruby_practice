@@ -30,6 +30,29 @@
 # target batch = all_entries.reject { |url, _| scraped_urls.include?(url) }
 # ***
 # 
+# The Array, The Question, and The Bouncer
+# 
+# The Array: 
+# scraped_urls = []
+# -- read the CSV and dump the URLs into a bucket
+# 
+# looks at existing file, if you already scraped 100 sites
+# it will start when it finds a new one that isnt on the list. 
+#
+# The Bouncer and his question:
+# target_batch = all_entries.reject { |url, _| scraped_urls.include?(url) }
+# 
+# the question is .include?
+# if its on the list 
+#  --scraped_url.include?()
+# we tell the bouncer:
+# 
+# the bouncer is .reject
+# you reject the target batch entries until you
+# find one that ISNT on the list lol
+# Hes saying does this list .include? this url?
+# if it does he throws it out.
+#
 # 4: scraping:
 # def scrape_business_details(html, url, headers)
 # doc = Nokogiri::HTML(html)
