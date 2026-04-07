@@ -1,0 +1,234 @@
+notes on https://vimeo.com/91672848
+
+Kevin Berridge kevinberridge.com
+works for matrix in cleveland
+
+John McCarthy invented basically all of the fundamentals of programming:
+If statements garbage collection etc
+
+Objects:
+Inheritance, Design patters, solid design principals
+
+public class
+{
+    ...procedural code
+
+}
+
+This is bad lol
+
+What is the BIG PICTURE?
+
+what is OOP for? WHY?
+** Control intellectual complexity of our systems
+    We have to deal with it when it gets complicated
+
+    this wil make them more maleable extensible and SIMPLER
+
+    BEHAVIOR EMERGES from the COMPOSITION of the OBJECTS
+        Classes
+
+        Inheritance
+
+        What you can do
+
+        What operations you have
+
+        Behavior oriented code
+
+        Messages
+            Mindset
+            Methods are bout Control
+            Messages are about communication
+
+            Only thing an abject can do is send a Messages
+            only thing an object can know is hear a message
+
+            Encapsulation & Information Hiding
+
+            Safe Change
+                List
+                malleable
+        Roles
+            group messages together
+            public class List
+            {
+                ...
+            }
+            all it cares is what the class does for it. what role it performs
+            Object => something that behaves like a list
+            Malleable
+
+            Interface
+
+            Duck Typing - dynamic language
+
+            What Not How Messages: Tell Don't Ask
+            - callign object should describe what it wants in terms of the ROLE that its naighbor
+            plays, and le tthe called object decide HOW to make that happen.
+        What Behavior do I need?
+            What messages?
+                Tell dont ask, what not how
+            Who do I sent them to.
+
+            A class that has more than one responsibility is difficult to resuse. the various
+            responsibilities are likely thoroughly entagled within the class. It has
+            many reasons to change, each time it changes there's a possibility it will break
+            everything that depends on it.
+        
+        SINGLE RESPONSIBILITY PRINCIPLE
+            A class has responsibilities that fulfill its purpose. SIMPLER
+            doesnt require that a class do only one very narrow thing, ro that it change
+            for only a single nitpicky reason, instead SRP requires that a 
+            class be cohesive-- that everything the class does be highly related to
+            its purpose.
+
+        SINGLE PURPOSE PRINCIPLE
+            Does this message help fulfill the purpose or not?
+
+        Behavior Oriented
+            Behavior Emerges from the Composition of the Objects
+        COMPOSITION
+            OO: composition takes objects and composes them together
+            OO: any given object can either do something on its own, OR delegate to another object
+            COMPOSITION OVER Inheritance
+                composition is just delegation - Inheritance is just automatic message delegation
+                inheritance is syntatic sugar
+            Composition
+                break apart into smaller parts, smaller parts come together to make the whole
+                ABSTRACTION
+                    deep concept everywhere, biology life etc
+                    help with malleable extensible and reusable systems
+                Context Independence + Roles
+                    Reuse: you can use it in a brand new context (that you didnt even imagine yet)
+                    Open-Closed PRINCIPLE
+                        Closed for modification, but open for extension
+                        Don't couple your object for its environment
+                composite object's API must hide the existence of its component parts
+                    and the interactions between them and expose a simpler ABSTRACTION
+                    to its peers
+                Law of Demeter
+                    A.B.C.D.E.DoSomething() - too many dependencies
+                    more what youd call "guidelines" than actual rules
+                    limited knowledge about others
+                    talk only to your friend
+                    talk only to immediate friends
+                    Make objects that are ANTI-SOCIAL
+
+                    Dependency Injection
+                        give up ability to create objects or manage lifecycles
+                        (Factory Objects and version control containers)
+                        Added complexity?
+                        yes, but Essential for composition
+
+                        Set up the Simulation!
+            COMPOSITION ORIENTED programming
+                use the composition of objects to decompose and recompose solutions,
+                Write context independent objects that expose a SIMPLER API
+                We set up a simulation and inject that set up with DI
+                And we are Anti Social
+
+                Result: More extensible and reusable systems.
+        EMERGENCE
+            How do we leverage them to the best effect
+            To Control Complexity One must embrace Simplicity
+            Emergence-Oriented
+                Traffic Light
+                Book: Object Thinking
+                    Intersection (how many streets in the intersection? lots of diveristy)
+                    Cars, Semis, People, bikes
+                    Simplicity of traffic light is its strength for managing complexity
+                        It knows its state. 
+                            doesnt even know intersections exist
+                            Only knows light and time.
+                Distributed cooperation and communication must replace
+                    hierarchical centralized control as an organizational
+                    paradigm
+                BLIND TRUST.
+                    Objects need to blindly trust the objects they communicate with
+                    Blind trust is a keystone of OOP: allows objects to collaborate
+                    WITHOUT binding themselves to CONTEXT and is necessary in any
+                    application that expects to grow and change.
+                GIVE UP PROCEDURAL CONTROL
+                    Shift of thinking: no predefined procedures only messages btwn objects
+                Prepare a trip
+                    You do Bike Tours
+                    must make sure the bikes are ready
+                    [trip]                  [mechanic]
+                    |____                           |
+                    |    \                          |
+                    |    bicycles                   |
+                    |    /                          |
+                    |----                           |
+                    |    [for each bicycles]        |
+                    |                               |
+                    |----clean bicycle(bike)------->|
+                    |<------------------------------|
+                    |                               |
+                    |----pump tires (bike)--------->|
+                    |<------------------------------|
+                    |                               |
+                    |----lube chain (bike)--------->|
+                    |<------------------------------|
+                    |                               |
+                    |----check brakes (bike)------->|
+                    |<----------------------------- |
+
+                    This is too many messages to the mechanic, mechanic is too low level
+                    the trip should not determine how a mechanic cares for the bike. It
+                    should be the responsibility of the mechanic.
+
+                    [trip]                  [mechanic]
+                    |____                           |
+                    |    \                          |
+                    |    bicycles                   |
+                    |    /                          |
+                    |----                           |
+                    |    [for each bicycles]        |
+                    |                               |
+                    |----prepare the bicycle(bike)->|clean bicycle(bike)
+                    |                               |       |
+                    |                               |       \/
+                    |                               |pump tires (bike)
+                    |                               |       |
+                    |                               |       \/
+                    |                               |lube chain (bike)
+                    |                               |       |
+                    |                               |       \/
+                    |                               |check brakes (bike)
+                    |                               |       |
+                    |                               |      /
+                    |<----------------------------- |<----/
+
+                    This is better, but not BLIND TRUST yet.
+                    the trip knows about bicycles, and knows they need to be prepared
+
+                    The trip actually just wants to be ready to go.
+
+                     [trip]                  [mechanic]
+                    |                               |
+                    |                               |
+                    |----prepare trip(self)-------->|
+                    |                               |
+                    |<-----------------give bikes-- |
+                    |ok lol                         |
+                    |------the bicycles------------>|
+                    |                               |[for each bicycles]
+                    |                               |   prepare bicycle(self)
+                    |<---------------finished bikes-|
+
+            Top Down VS Bottom Up approach
+                Top Down: What does this need to do, then drill Down
+                    usually turns into too many dependencies context dependent situations
+                    not easy to combine with modules from other sources.
+                Bottom Up: write the components as generally as possible
+                    We dont like this because it feels like wasting time on things no one uses
+                    too general not user focused
+                No Good Solution to this.
+-also how can we take advantage of it. What are the full benefits
+    -  Behavior Oriented - What Not How
+    - Composition Oriented - Decomposing and recomposing of context independent objects
+    = Emergence Oriented - blind trust and distributed cooperation of emergence oriented programming
+    because
+
+    the Behavior emerges from the composition of its objects.
