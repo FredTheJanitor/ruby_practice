@@ -37,3 +37,21 @@ doone = Person.new("Lil", "Wayne")
 puts doone.first_name
 puts doone.last_name
 puts doone.full_name
+
+module MathHelpers
+  def exponent(num, exp)
+    num**exp
+  end
+end
+
+class Calculator
+  include MathHelpers
+  def square_root(num)
+    exponent(num, 0.5)
+  end
+end
+
+calc = Calculator.new
+
+puts calc.square_root(49)
+puts calc.square_root(69)
