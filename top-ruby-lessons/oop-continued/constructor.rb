@@ -1,3 +1,9 @@
 #!/usr/bin/env ruby
 
-puts "test"
+class Being
+  def initialize
+    puts "Being is created"
+  end
+end
+
+Being.new
