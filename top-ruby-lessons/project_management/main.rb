@@ -1,1 +1,1 @@
-require_relative 'lib/sort'
+require 'lib/sort'
