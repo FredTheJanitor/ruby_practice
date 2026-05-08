@@ -1,4 +1,5 @@
 require_relative 'not_so_green'
 require_relative 'scheals'
 
-puts food_opinion("cereal")
+puts NotSoGreen.food_opinion("cereal")
+puts Scheals.food_opinion("cereal")
