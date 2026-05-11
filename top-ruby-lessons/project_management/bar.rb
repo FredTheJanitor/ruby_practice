@@ -1,0 +1,1 @@
+puts("bar.rb loaded!")
