@@ -3,40 +3,60 @@ def cli_interface_intro
   puts 'Welcome to Caesar Cipher'
 end
 
-# runs the program
-def cli_interface
+def instructions_one
   puts '-------------------------------------------'
   puts "Please, type a string to be 'cyphered'"
   puts '-------------------------------------------'
   puts 'Your String:'
-  string = gets.chomp
+end
+
+def instructions_two
   puts '-------------------------------------------'
   puts 'Please, type an integer to shift the string'
   puts '-------------------------------------------'
   puts 'Your Shift Amount:'
-  shift_amount = gets.chomp.to_i
+end
+
+def output_cypher
   puts '-------------------------------------------'
   puts 'Your New Caesar Cipher:'
-  puts "#{caesar_cypher(string, shift_amount)}"
+  puts 'caesar_cypher(string, shift_amount).to_s'
+end
+
+# runs the program
+def cli_interface
+  instructions_one
+  string = gets.chomp
+  instructions_two
+  shift_amount = gets.chomp.to_i
+  output_cypher
   cli_ending_sequence
 end
 
-# ends or restarts the program
-def cli_ending_sequence
+def ending_text_one
   puts '-------------------------------------------'
   puts 'Make another?'
   puts '-------------------------------------------'
   puts 'Type `Y` or `N`:'
+end
+
+def ending_text_two
+  puts '-------------------------------------------'
+  puts 'Goodbye, Thank you for using Caeser Cipher'
+  puts '-------------------------------------------'
+end
+
+# ends or restarts the program
+def cli_ending_sequence
+  ending_text_one
   restart = gets.chomp.upcase
-  unless restart === 'Y' || restart === 'N'
+  unless %w[Y N].include? restart
     puts 'Invalid input, please type Y to try again'
     puts '  or N to quit!'
     cli_ending_sequence
   end
   cli_interface if restart == 'Y'
-  puts '-------------------------------------------'
-  puts 'Goodbye, Thank you for using Caeser Cipher'
-  puts '-------------------------------------------'
+  ending_text_two
   exit
 end
 
