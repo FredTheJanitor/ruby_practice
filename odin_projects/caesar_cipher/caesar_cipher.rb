@@ -17,10 +17,9 @@ def instructions_two
   puts 'Your Shift Amount:'
 end
 
-def output_cypher
+def output_cypher_text
   puts '-------------------------------------------'
   puts 'Your New Caesar Cipher:'
-  puts 'caesar_cypher(string, shift_amount).to_s'
 end
 
 # runs the program
@@ -29,7 +28,8 @@ def cli_interface
   string = gets.chomp
   instructions_two
   shift_amount = gets.chomp.to_i
-  output_cypher
+  output_cypher_text
+  puts caesar_cypher(string, shift_amount)
   cli_ending_sequence
 end
 
@@ -60,24 +60,26 @@ def cli_ending_sequence
   exit
 end
 
+def retain_case(char, shift_amount)
+  # retain case of the alphabetical characters
+  if char.upcase == char
+    upper_character_number = char.ord - 64
+    caesar_shift_unicode(upper_character_number, shift_amount).chr.upcase
+  elsif char.downcase == char
+    lower_character_number = char.ord - 96
+    caesar_shift_unicode(lower_character_number, shift_amount).chr.downcase
+  end
+end
+
 # performs cipher and returns the new string
 def caesar_cypher(string, shift_amount)
   character_array = string.split('')
 
   cypher_aray = character_array.map do |char|
-    # unless the character is alphabetical, return the character to cypher array
+    # keep all characters unless they're alphabetical
     next char unless char.ord.between?(97, 122) || char.ord.between?(65, 90)
 
-    # retain case of the alphabetical characters
-    if char.upcase === char
-      upper_character_number = char.ord - 64
-      new_char = caesar_shift_unicode(upper_character_number, shift_amount).chr.upcase
-      next new_char
-    elsif char.downcase === char
-      lower_character_number = char.ord - 96
-      new_char = caesar_shift_unicode(lower_character_number, shift_amount).chr.downcase
-      next new_char
-    end
+    retain_case(char, shift_amount)
   end
   cypher_aray.join('')
 end
