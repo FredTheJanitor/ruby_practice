@@ -11,7 +11,7 @@ def cli_interface
   cli_ending_sequence
 end
 
-# performs cipher and returns the new string
+# Performs cipher and returns the new string
 def caesar_cypher(string, shift_amount)
   character_array = string.split('')
 
@@ -35,7 +35,7 @@ def retain_case(char, shift_amount)
   end
 end
 
-# shift a number 1-26 and return unicode value for lowercase letter
+# Shift a number 1-26 and return unicode value for lowercase letter
 def caesar_shift_unicode(number = 0, shift = 0)
   big_number = number + shift
   normal_number = big_number
@@ -43,7 +43,7 @@ def caesar_shift_unicode(number = 0, shift = 0)
   normal_number + 96
 end
 
-# ends or restarts the program
+# Ends or restarts the program
 def cli_ending_sequence
   make_another_text
   restart = gets.chomp.upcase
@@ -94,5 +94,6 @@ def ending_text
   puts '-------------------------------------------'
 end
 
+# Run the program upon execution
 cli_interface_intro
 cli_interface
